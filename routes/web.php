@@ -18,7 +18,6 @@ Route::get('/', function () {
 //Route::get('admin','PageController@admin');
 
 Route::prefix('admin')->group(function () {
-
-	Route::get('/','PageController@admin');
-
+  Route::resource('products','ProductController');
+  Route::resource('type-products','TypeProductController');
 });

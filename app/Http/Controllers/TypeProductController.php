@@ -6,6 +6,7 @@ use App\Type_products;
 use Illuminate\Http\Request;
 use DB;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Storage;
 
 class TypeProductController extends Controller
 {
@@ -16,8 +17,9 @@ class TypeProductController extends Controller
      */
     public function index()
     {
-        $data = DB::table('type_products')->paginate('5');
-        return view('admin.type-products-admin')->with('type',$data);
+      return view('theme.create.type-products');
+        // $data = DB::table('type_products')->paginate('5');
+        // return view('admin.type-products-admin')->with('type',$data);
     }
 
     /**
@@ -42,10 +44,27 @@ class TypeProductController extends Controller
      */
     public function store(Request $request)
     {
+        // if ($request->hasFile('photo')) {
+        //     $image      = $request->file('photo');
+        //     $fileName   = time() . '.' . $image->getClientOriginalExtension();
+        //
+        //     $img = Image::make($image->getRealPath());
+        //     $img->resize(120, 120, function ($constraint) {
+        //         $constraint->aspectRatio();
+        //     });
+        //
+        //     //$img->stream(); // <-- Key point
+        //
+        //     //dd();
+        //     Storage::disk('local')->put('images/1/smalls'.'/'.$fileName, $img, 'public');
+        //     //Storage::disk('local')->put($fileName,$img);
+        //
+        // }
+
         DB::table('type_products')->insert([
             'name' => $request->name,
             'description' => $request->description,
-            'image' => $request->image,
+            'image' => $fileName,
         ]);
         return Redirect::back()->with('message','Operation Successful !');
     }

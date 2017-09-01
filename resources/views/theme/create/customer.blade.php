@@ -20,8 +20,8 @@
     <div class="col-md-12 col-sm-12 col-xs-12">
         <div class="x_panel">
             <div class="x_title">
-                <h2>Loại sản phẩm
-                    <small>Thêm thông tin loại sản phẩm</small>
+                <h2>Khách hàng
+                    <small>Thêm thông tin khách hàng mói</small>
                 </h2>
                 <ul class="nav navbar-right panel_toolbox">
                     <li>
@@ -34,35 +34,50 @@
             </div>
             <div class="x_content">
                 <br>
-                <form method="post" action="{{ url('admin/type-products') }}" id="demo-form2" data-parsley-validate="" class="form-horizontal form-label-left" novalidate="">
-                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                <form id="demo-form2" data-parsley-validate="" class="form-horizontal form-label-left" novalidate="">
                     <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Tên loại sản phẩm
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Tên khách hàng
                         <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                            <input type="text" id="first-name" name="name" required="required" class="form-control col-md-7 col-xs-12" required>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Miêu tả <span class="required">*</span>
-                        </label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                            <textarea class="form-control" name="description" rows="5" placeholder="rows=&quot;3&quot;"></textarea>
+                            <input type="text" id="first-name" required="required" class="form-control col-md-7 col-xs-12">
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Hình ảnh <span class="required">*</span>
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Email
+                        <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                            <input type="file" id="last-name" name="image" required="required" class="form-control col-md-7 col-xs-12">
+                            <input type="text" id="first-name" required="required" class="form-control col-md-7 col-xs-12">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Địa chỉ
+                        <span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            <input type="text" id="first-name" required="required" class="form-control col-md-7 col-xs-12">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Số điện thoại
+                        <span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            <input type="text" id="first-name" required="required" class="form-control col-md-7 col-xs-12">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Ghi chú
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            <textarea class="form-control" rows="5" placeholder=""></textarea>
                         </div>
                     </div>
                     <div class="ln_solid"></div>
                     <div class="form-group">
-                        <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
-                            <button class="btn btn-primary" type="button">Cancel</button>
+                        <div class="col-md-9 col-sm-9 col-xs-12 col-md-offset-3">
+                            <button type="button" class="btn btn-primary">Cancel</button>
                             <button class="btn btn-primary" type="reset">Reset</button>
                             <button type="submit" class="btn btn-success">Submit</button>
                         </div>
