@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('theme.test');
+    return view('theme.create.products');
 });
 
 //Route::get('admin','PageController@admin');
