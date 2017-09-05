@@ -20,7 +20,7 @@ class CreateProductsTable extends Migration
             $table->text('description')->nullable();
             $table->double('unit_price')->nullable();
             $table->double('promotion_price')->nullable();
-            $table->string('image');
+            $table->string('image')->default('products_default.jpg');
             $table->string('unit')->nullable();
             $table->integer('exist_id')->default(1);
             $table->timestamps();

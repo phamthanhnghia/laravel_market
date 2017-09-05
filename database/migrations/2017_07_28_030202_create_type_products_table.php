@@ -17,7 +17,7 @@ class CreateTypeProductsTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->text('description');
-            $table->string('image')->nullable();
+            $table->string('image')->default('type_products_default.jpg');
             $table->integer('exist_id')->default(1);
             $table->timestamps();
         });
