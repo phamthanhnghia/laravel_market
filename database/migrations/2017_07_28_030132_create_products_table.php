@@ -22,6 +22,7 @@ class CreateProductsTable extends Migration
             $table->double('promotion_price')->nullable();
             $table->string('image');
             $table->string('unit')->nullable();
+            $table->integer('exist_id')->default(1);
             $table->timestamps();
         });
     }

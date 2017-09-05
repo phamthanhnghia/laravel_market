@@ -3,9 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Type_products;
 
 class ProductController extends Controller
 {
+    function __construct(Type_products $type_products){
+      $this->type_products = $type_products;
+    }
     /**
      * Display a listing of the resource.
      *
@@ -13,7 +17,8 @@ class ProductController extends Controller
      */
     public function index()
     {
-        return view('theme.create.products');
+        $type = $this->type_products->getListTypeProducts();
+        return view('theme.create.products')->with(compact('type'));
     }
 
     /**

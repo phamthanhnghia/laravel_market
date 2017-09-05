@@ -21,6 +21,7 @@ class CreateCustomerTable extends Migration
             $table->string('address');
             $table->string('phone_number');
             $table->string('note');
+            $table->integer('exist_id')->default(1);
             $table->timestamps();
         });
     }

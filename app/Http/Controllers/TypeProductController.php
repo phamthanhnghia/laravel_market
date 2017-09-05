@@ -11,6 +11,9 @@ use Illuminate\Http\UploadedFile;
 
 class TypeProductController extends Controller
 {
+    function __construct(Type_products $type_products){
+      $this->type_products = $type_products;
+    }
     /**
      * Display a listing of the resource.
      *
@@ -18,6 +21,7 @@ class TypeProductController extends Controller
      */
     public function index()
     {
+
       return view('theme.create.type-products');
     }
 

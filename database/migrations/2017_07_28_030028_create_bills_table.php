@@ -20,6 +20,7 @@ class CreateBillsTable extends Migration
             $table->double('total');
             $table->string('payment');
             $table->string('note');
+            $table->integer('exist_id')->default(1);
             $table->timestamps();
         });
     }

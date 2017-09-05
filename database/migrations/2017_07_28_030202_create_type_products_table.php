@@ -18,6 +18,7 @@ class CreateTypeProductsTable extends Migration
             $table->string('name');
             $table->text('description');
             $table->string('image')->nullable();
+            $table->integer('exist_id')->default(1);
             $table->timestamps();
         });
     }
