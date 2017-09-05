@@ -11,11 +11,11 @@
 |
 */
 Auth::routes();
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/', 'HomeController@index')->name('admin');
 
-Route::get('/', function () {
-    return view('theme.create.type-products');
-});
+// Route::get('/', function () {
+//     return view('theme.create.type-products');
+// });
 
 //Route::get('admin','PageController@admin');
 

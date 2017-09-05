@@ -32,15 +32,18 @@
             <div class="clearfix"></div>
 
             <!-- menu profile quick info -->
-            <div class="profile clearfix">
-              <div class="profile_pic">
-                <img src="{{ asset('theme/production/images/img.jpg') }}" alt="..." class="img-circle profile_img">
+            @if(!Auth::guest())
+              <div class="profile clearfix">
+                <div class="profile_pic">
+                  <img src="{{ asset(Auth::user()->avatar) }}" alt="..." class="img-circle profile_img">
+                </div>
+                <div class="profile_info">
+                  <span>Chào,</span>
+                  <h2>{{ Auth::user()->name }}</h2>
+                </div>
               </div>
-              <div class="profile_info">
-                <span>Welcome,</span>
-                <h2>John Doe</h2>
-              </div>
-            </div>
+            @endif
+
             <!-- /menu profile quick info -->
 
             <br />
@@ -177,24 +180,39 @@
               </div>
 
               <ul class="nav navbar-nav navbar-right">
-                <li class="">
-                  <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                    <img src="{{ asset('theme/production/images/img.jpg') }}" alt="">John Doe
-                    <span class=" fa fa-angle-down"></span>
-                  </a>
-                  <ul class="dropdown-menu dropdown-usermenu pull-right">
-                    <li><a href="javascript:;"> Profile</a></li>
-                    <li>
-                      <a href="javascript:;">
-                        <span class="badge bg-red pull-right">50%</span>
-                        <span>Settings</span>
-                      </a>
-                    </li>
-                    <li><a href="javascript:;">Help</a></li>
-                    <li><a href="login.html"><i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
-                  </ul>
-                </li>
 
+                @if (Auth::guest())
+                    <li><a href="{{ route('login') }}">Login</a></li>
+                    <li><a href="{{ route('register') }}">Register</a></li>
+                @else
+                    <li class="dropdown">
+                        <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                          <img src="{{ asset(Auth::user()->avatar) }}" alt="">
+                          {{ Auth::user()->name }}
+                          <span class=" fa fa-angle-down"></span>
+                        </a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="javascript:;"> Profile</a></li>
+                            <li>
+                              <a href="javascript:;">
+                                <span class="badge bg-red pull-right">50%</span>
+                                <span>Settings</span>
+                              </a>
+                            </li>
+                            <li>
+                                <a href="{{ route('logout') }}"
+                                    onclick="event.preventDefault();
+                                             document.getElementById('logout-form').submit();">
+                                    Logout
+                                </a>
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                    {{ csrf_field() }}
+                                    <i class="fa fa-sign-out pull-right"></i> Log Out
+                                </form>
+                            </li>
+                        </ul>
+                    </li>
+                @endif
                 <li role="presentation" class="dropdown">
                   <a href="javascript:;" class="dropdown-toggle info-number" data-toggle="dropdown" aria-expanded="false">
                     <i class="fa fa-envelope-o"></i>
