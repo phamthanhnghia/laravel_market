@@ -12,6 +12,7 @@ use Illuminate\Http\UploadedFile;
 class TypeProductController extends Controller
 {
     function __construct(Type_products $type_products){
+      $this->middleware('auth');
       $this->type_products = $type_products;
     }
     /**

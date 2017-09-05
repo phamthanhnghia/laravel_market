@@ -22,4 +22,5 @@ Route::get('/', 'HomeController@index')->name('admin');
 Route::prefix('admin')->group(function () {
   Route::resource('products','ProductController');
   Route::resource('type-products','TypeProductController');
+  Route::resource('product-manage','ProductManageController');
 });

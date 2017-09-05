@@ -5,12 +5,12 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Type_products;
 
-class ProductController extends Controller
+class ProductManageController extends Controller
 {
-    function __construct(Type_products $type_products){
-      $this->middleware('auth');
-      $this->type_products = $type_products;
-    }
+  function __construct(Type_products $type_products){
+    $this->middleware('auth');
+    $this->type_products = $type_products;
+  }
     /**
      * Display a listing of the resource.
      *
@@ -18,8 +18,9 @@ class ProductController extends Controller
      */
     public function index()
     {
+        $count_type = $this->type_products->countTypeProducts();
         $type = $this->type_products->getListTypeProducts();
-        return view('theme.create.products')->with(compact('type'));
+        return view('theme.dashboard.product-manage')->with(compact('type'),$count_type);
     }
 
     /**

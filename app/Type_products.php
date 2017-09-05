@@ -13,4 +13,8 @@ class Type_products extends Model
       $result = DB::table('type_products')->where('exist_id',1)->get();
       return $result;
     }
+    public function countTypeProducts(){
+      $result = DB::table('type_products')->where('exist_id',1)->count();
+      return $result;
+    }
 }
