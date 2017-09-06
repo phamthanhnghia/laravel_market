@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\Controller;
+use Illuminate\Pagination\Paginator;
 use App\Type_products;
 
 class ProductManageController extends Controller
@@ -19,8 +22,8 @@ class ProductManageController extends Controller
     public function index()
     {
         $count_type = $this->type_products->countTypeProducts();
-        $type = $this->type_products->getListTypeProducts();
-        return view('theme.dashboard.product-manage')->with(compact('type'),$count_type);
+        $types = $this->type_products->getListTypeProducts();
+        return view('theme.dashboard.product-manage',['types' => $types])->with('count_type',$count_type);
     }
 
     /**

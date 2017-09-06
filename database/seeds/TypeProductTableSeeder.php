@@ -11,7 +11,7 @@ class TypeProductTableSeeder extends Seeder
      */
     public function run()
     {
-      for ($i=0; $i < 10; $i++) {
+      for ($i=0; $i < 35; $i++) {
         DB::table('type_products')->insert([
             'name' => str_random(10),
             'description' => str_random(30),
